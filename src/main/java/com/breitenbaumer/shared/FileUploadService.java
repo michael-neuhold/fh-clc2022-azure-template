@@ -18,7 +18,7 @@ import com.azure.storage.blob.sas.BlobServiceSasSignatureValues;
 public class FileUploadService {
 
     private Logger logger;
-    private BlobClientProvider provider;
+    private CognitiveServiceClientProvider provider;
     private BlobServiceClient blobServiceClient;
     private BlobContainerClient imageContainer;
     private BlobContainerClient resultContainer;
@@ -27,7 +27,7 @@ public class FileUploadService {
 
     public FileUploadService(Logger logger) {
         this.logger = logger;
-        this.provider = new BlobClientProvider(logger);
+        this.provider = new CognitiveServiceClientProvider(logger);
         this.blobServiceClient = provider.getBlobServiceClient();
         this.imageContainer = blobServiceClient.createBlobContainerIfNotExists(imagecontainerName);
         this.resultContainer = blobServiceClient.createBlobContainerIfNotExists(resultscontainerName);
